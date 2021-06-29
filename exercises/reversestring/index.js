@@ -31,4 +31,9 @@ function reverse2(str) {
     return reversed;
 }
 
+function reverse3(str) {
+
+    return str.split('').reduce( (reversed, char) => char + reversed , '');
+}
+
 module.exports = reverse;
