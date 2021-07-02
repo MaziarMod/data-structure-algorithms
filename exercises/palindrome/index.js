@@ -11,4 +11,9 @@ function palindrome(str) {
     return str === str.split('').reduce((reversed, char) => char + reversed);   
 }
 
+function palindrome1(str) {
+    const reversed = str.split('').reverse().join('');
+    return str === reversed; 
+}
+
 module.exports = palindrome;
