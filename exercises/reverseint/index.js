@@ -13,4 +13,11 @@ function reverseInt(n) {
     return Math.sign(n) * parseInt(n.toString().split('').reduce((reversed, char) => char + reversed , ''));
 }
 
+function reverseInt2(n) {
+    
+    return Math.sign(n) * parseInt(n.toString().split('').
+    reverse().join(''));
+}
+
+
 module.exports = reverseInt;
