@@ -36,4 +36,29 @@ function anagrams(stringA, stringB) {
   return true;
 }
 
+function anagrams1(stringA, stringB) {
+  const stringACharMap = BuildCharMap(stringA);
+  const stringBCharMap = BuildCharMap(stringB);
+
+  if (Object.keys(stringACharMap).length !== Object.keys(stringBCharMap).length) {
+    return false;
+  }
+  for (let char in stringACharMap) {
+        if (stringACharMap[char] !== stringBCharMap[char]) {
+          return false;
+        }
+  }
+  return true;
+}
+
+function BuildCharMap(string) {
+  const charMap = {}
+  const cleanedString = string.replace(/[^\w]/g, '').toLowerCase();
+
+  for (let char of cleanedString) {
+    charMap[char] = charMap[char] + 1 || 1;
+  }
+  return charMap;
+}
+
 module.exports = anagrams;
