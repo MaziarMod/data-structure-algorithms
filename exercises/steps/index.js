@@ -18,11 +18,11 @@
 //       '####'
 
 function steps(n) {
-  for(let row=0; row<n; row++) {
+  for (let row = 0; row < n; row++) {
     let str = '';
-    for(let column=0; column<n; column++) {
+    for (let column = 0; column < n; column++) {
       if (column <= row) {
-        str +='#';
+        str += '#';
       } else {
         str += ' ';
       }
@@ -31,5 +31,16 @@ function steps(n) {
   }
 }
 
+function steps1(n, row = 0, stair = '') {
+  if (n === row) {
+    return;
+  }
+  if (n === stair.length) {
+    console.log(stair);
+    return steps(n, row + 1);
+  }
+  const add = stair.length <= row ? '#' : ' ';
+  steps(n, row, stair + add);
+}
 
-module.exports = steps;
+module.exports = steps1;
