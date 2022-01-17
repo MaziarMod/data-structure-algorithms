@@ -28,4 +28,16 @@ function vowels1(str) {
   return count;
 }
 
-module.exports = vowels1;
+function vowels2(str) {
+  let count = 0;
+  const checker = 'aeiou';
+
+  for (let char of str.toLowerCase()) {
+    if (checker.includes(char)) {
+      count++;
+    }
+  }
+  return count;
+}
+
+module.exports = vowels2;
