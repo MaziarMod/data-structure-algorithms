@@ -8,7 +8,7 @@
 //   vowels('Why?') --> 0
 
 function vowels(str) {
-  const regexp = /[aeiouAEIOU]/g;
+  const regexp = /[aeiou]/gi;
   return [...str.matchAll(regexp)].length;
 }
 
@@ -51,4 +51,11 @@ function vowels3(str) {
   }
   return count;
 }
-module.exports = vowels3;
+
+function vowels4(str) {
+  const matches = str.match(/[aeiou]/gi);
+
+  return matches ? matches.length : 0;
+}
+
+module.exports = vowels4;
