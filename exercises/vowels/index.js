@@ -12,4 +12,20 @@ function vowels(str) {
   return [...str.matchAll(regexp)].length;
 }
 
-module.exports = vowels;
+function vowels1(str) {
+  let count = 0;
+  for (let char of str.toLowerCase()) {
+    if (
+      char === 'a' ||
+      char === 'e' ||
+      char === 'i' ||
+      char === 'o' ||
+      char === 'u'
+    ) {
+      count++;
+    }
+  }
+  return count;
+}
+
+module.exports = vowels1;
