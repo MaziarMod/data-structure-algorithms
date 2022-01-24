@@ -9,11 +9,9 @@
 //   fib(4) === 3
 
 function fib(n) {
-  const fibArray = [0, 1];
-  for (let i = 2; i <= n; i++) {
-    fibArray.push(fibArray[i - 1] + fibArray[i - 2]);
-  }
-  return fibArray[n];
+  if (n < 2) return n;
+
+  return fib(n - 1) + fib(n - 2);
 }
 
 function fib1(n) {
@@ -25,6 +23,14 @@ function fib1(n) {
     fibArray.push(fibArray[i] + fibArray[i - 1]);
   }
   return fibArray[fibArray.length - 1];
+}
+
+function fib2(n) {
+  const fibArray = [0, 1];
+  for (let i = 2; i <= n; i++) {
+    fibArray.push(fibArray[i - 1] + fibArray[i - 2]);
+  }
+  return fibArray[n];
 }
 
 module.exports = fib;
