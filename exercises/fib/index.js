@@ -9,6 +9,14 @@
 //   fib(4) === 3
 
 function fib(n) {
+  const fibArray = [0, 1];
+  for (let i = 2; i <= n; i++) {
+    fibArray.push(fibArray[i - 1] + fibArray[i - 2]);
+  }
+  return fibArray[n];
+}
+
+function fib1(n) {
   if (n === 0) return 0;
   if (n === 1 || n === 2) return 1;
 
