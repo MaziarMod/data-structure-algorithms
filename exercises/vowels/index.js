@@ -58,4 +58,4 @@ function vowels4(str) {
   return matches ? matches.length : 0;
 }
 
-module.exports = vowels4;
+module.exports = vowels;
