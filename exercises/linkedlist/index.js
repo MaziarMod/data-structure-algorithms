@@ -85,6 +85,21 @@ class LinkedList {
     }
     last.next = node;
   }
+
+  getAt(index) {
+    let counter = 0;
+    let node = this.head;
+
+    while (node) {
+      if (counter === index) {
+        return node;
+      }
+      counter++;
+      node = node.next;
+    }
+    // this line helps use to get rid of size() because if someone provide an index which is greater than the size of list, we are not going to hit to that if statement (counter === index) because node will be null earlier than counter === index. So, we can simply return null
+    return null;
+  }
 }
 
 module.exports = { Node, LinkedList };
