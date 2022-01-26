@@ -100,6 +100,25 @@ class LinkedList {
     // this line helps use to get rid of size() because if someone provide an index which is greater than the size of list, we are not going to hit to that if statement (counter === index) because node will be null earlier than counter === index. So, we can simply return null
     return null;
   }
+
+  removeAt(index) {
+    if (!this.head) {
+      return;
+    }
+    // this is the edge case for when we are trying to delete the first node in the list
+    if (index === 0) {
+      this.head = this.head.next;
+      return;
+    }
+
+    const previousNode = this.getAt(index - 1);
+    // this is another edge case that either previous node of the node that we are going to delete is null, or there is no node after previous node that we are trying to remove. In both cases, it means the index is greater that the list size
+    if (!previousNode || !previousNode.next) {
+      return;
+    }
+    const nextNode = previousNode.next.next;
+    previousNode.next = nextNode;
+  }
 }
 
 module.exports = { Node, LinkedList };
