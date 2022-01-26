@@ -23,6 +23,7 @@ describe('Midpoint returns the middle node of an odd numbered list', () => {
     l.insertLast('c');
     l.insertLast('d');
     l.insertLast('e');
+
     expect(midpoint(l).data).toEqual('c');
   });
 });
@@ -41,6 +42,7 @@ describe('Midpoint returns the middle node of an even numbered list', () => {
     l.insertLast('b');
     l.insertLast('c');
     l.insertLast('d');
+
     expect(midpoint(l).data).toEqual('b');
   });
 });
