@@ -28,6 +28,15 @@ class Tree {
   constructor() {
     this.root = null;
   }
+  traverseBF(fn) {
+    const array = [this.root];
+
+    while (array.length) {
+      const node = array.shift();
+      array.push(...node.children);
+      fn(node);
+    }
+  }
 }
 
 module.exports = { Tree, Node };
