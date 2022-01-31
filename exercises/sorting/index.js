@@ -1,6 +1,8 @@
 // --- Directions
 // Implement bubbleSort, selectionSort, and mergeSort
 
+const { reverseMultiplyAndSum } = require('validator/lib/util/algorithms');
+
 function bubbleSort(arr) {
   let temp = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -15,10 +17,40 @@ function bubbleSort(arr) {
   return arr;
 }
 
-function selectionSort(arr) {}
+function selectionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let indexOfMin = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[indexOfMin] > arr[j]) {
+        indexOfMin = j;
+      }
+    }
+    if (i !== indexOfMin) {
+      const lesser = arr[indexOfMin];
+      arr[indexOfMin] = arr[i];
+      arr[i] = lesser;
+    }
+  }
+  return arr;
+}
 
 function mergeSort(arr) {}
 
-function merge(left, right) {}
+function merge(left, right) {
+  const result = [];
+  while (left.length && right.length) {
+    if (left[0] < right[0]) {
+      result.push(left.shift());
+    } else {
+      result.push(right.shift());
+    }
+  }
+  if (left.length) {
+    result.push(...left);
+  } else {
+    result.push(...right);
+  }
+  return result;
+}
 
 module.exports = { bubbleSort, selectionSort, mergeSort, merge };
